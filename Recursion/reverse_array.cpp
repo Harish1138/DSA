@@ -1,6 +1,8 @@
 //
 // Created by harya on 31-08-2025.
 //
+
+// // With 1 pointer
 #include<iostream>
 using namespace std;
 void disp(int *arr,int n) {
@@ -11,10 +13,17 @@ void disp(int *arr,int n) {
         }
     }
 }
-void rev(int *arr,int start,int end) {
+// with 1 pointer
+void rev_with_1_pointer(int *arr,int i,int n) {
+    if (int (i>n/2)) return;
+    swap(arr[i],arr[n-i-1]);
+    rev_with_1_pointer(arr,i+1,n);
+}
+// With 2 pointer
+void rev_with_2_pointer(int *arr,int start,int end) {
     if (start>=end) return;
     swap(arr[start],arr[end]);
-    rev(arr,start+1,end-1);
+    rev_with_2_pointer(arr,start+1,end-1);
 }
 int main() {
     int n;
@@ -27,10 +36,16 @@ int main() {
     }
     cout<<"Original Array: ";
     disp(arr,n);
-    rev(arr,0,n-1);
+    rev_with_1_pointer(arr,0,n);
     cout<<endl;
-    cout<<"Reverse Array: ";
+    cout<<"Reverse Array using 1 pointer: ";
+    disp(arr,n);
+    cout<<endl;
+    cout<<"Reverse Array using 2 pointer: ";
     disp(arr,n);
 
 
 }
+
+
+
