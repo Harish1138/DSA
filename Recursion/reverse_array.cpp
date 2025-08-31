@@ -2,7 +2,7 @@
 // Created by harya on 31-08-2025.
 //
 
-// // With 1 pointer
+
 #include<iostream>
 using namespace std;
 void disp(int *arr,int n) {
